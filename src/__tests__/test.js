@@ -1,6 +1,6 @@
 import { it } from 'node:test';
-import Character from '../js/character.js';
-import Daemon from '../js/daemon.js';
+import Character from '../js/character';
+import Daemon from '../js/daemon';
 
 let character;
 
@@ -27,24 +27,24 @@ it('should rise the level', () => {
 
 it('should add damage', () => {
   character.damage(5);
-  expect(character.health).toBeCloseTo(97.4)
-})
+  expect(character.health).toBeCloseTo(97.4);
+});
 
 it('should not add damage', () => {
-    character.health = -1;
-    character.damage(100);
-  expect(character.health).toBe(-1)
-})
+  character.health = -1;
+  character.damage(100);
+  expect(character.health).toBe(-1);
+});
 
 test('Should throw an error because of invalid name ', () => {
   expect(() => {
-    new Character('A', 'Daemon');
+    character = new Character('A', 'Daemon');
   }).toThrow('incorrect name');
 });
 
 test('should throw an error because of invalid type', () => {
   expect(() => {
-    new Character('Anna', 123);
+    character = new Character('Anna', 123);
   }).toThrow('Invalid type');
 });
 
